@@ -154,12 +154,32 @@ p{margin:0 0 1rem}
 .hero::after{content:"";position:absolute;inset:0;background:
   radial-gradient(900px 420px at 88% -8%,rgba(240,168,96,.16),transparent 62%),
   radial-gradient(700px 380px at 6% 108%,rgba(240,168,96,.07),transparent 60%);pointer-events:none}
-.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.02fr .98fr;gap:3rem;align-items:start;padding-top:3.1rem;padding-bottom:3.1rem}
-@media (max-width:1000px){.hero .wrap{grid-template-columns:1fr;gap:2rem;padding-top:2.2rem;padding-bottom:2.2rem}}
+.hero .wrap{position:relative;z-index:1;padding-top:2.1rem;padding-bottom:2.1rem;max-width:1040px}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.bar{background:var(--paper);color:var(--ink);border-radius:var(--r);padding:1rem 1.1rem 0.9rem;box-shadow:0 16px 40px rgba(10,18,34,.3);margin-top:1.3rem}
+.bar .seg{margin-bottom:.75rem}
+.bar-grid{display:grid;grid-template-columns:1.25fr .7fr .9fr .9fr auto;gap:.6rem;align-items:end}
+.bar-grid>*{min-width:0}
+.bar-grid .field{margin:0}
+.bar-grid .btn{padding:.66rem 1.25rem;white-space:nowrap}
+.bar-foot{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:.5rem}
+.bar-foot span{font-size:.75rem;color:var(--ink-2)}
+.bar .more{margin:0}
+@media (max-width:860px){.bar-grid{grid-template-columns:1fr 1fr}.bar-grid .btn{grid-column:1/-1;width:100%}}
+.results{background:var(--paper);padding:1.8rem 0 2.6rem}
+.res-h{font-size:clamp(1.2rem,2.2vw,1.5rem);margin:0 0 .3rem}
+.res-sub{font-size:.9rem;color:var(--ink-2);margin:0 0 1rem;max-width:64ch}
+.factstrip{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+.factstrip>*{min-width:0}
+.factstrip li{display:flex;gap:.7rem;align-items:baseline}
+.factstrip b{font-family:var(--display);font-weight:700;color:var(--navy);background:var(--apricot);border-radius:6px;padding:.08rem .45rem;font-size:.9rem;white-space:nowrap}
+.factstrip span{font-size:.92rem;color:var(--ink-2)}
+@media (max-width:860px){.factstrip{grid-template-columns:1fr;gap:.7rem}}
 .kicker{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--apricot);font-weight:600;margin:0 0 1rem}
-.hero h1{font-size:clamp(2.15rem,4.6vw,3.5rem);margin:0 0 1rem}
+.hero h1{font-size:clamp(2rem,4.2vw,3.05rem);margin:0 0 .7rem}
 .hero h1 em{font-style:normal;color:var(--apricot)}
-.lede{font-size:1.06rem;color:var(--on-navy-mute);max-width:34em;margin:0 0 1.4rem}
+.lede{font-size:1.04rem;color:var(--on-navy-mute);max-width:60ch;margin:0}
+.lede strong{color:var(--on-navy)}
 .facts{list-style:none;margin:0 0 1.4rem;padding:0;display:grid;gap:.55rem}
 .facts li{display:flex;gap:.6rem;align-items:flex-start;font-size:.96rem;color:var(--on-navy)}
 .facts .n{flex:0 0 auto;font-family:var(--display);font-weight:700;color:var(--navy);background:var(--apricot);border-radius:6px;padding:.05rem .42rem;font-size:.86rem;line-height:1.5}
@@ -244,7 +264,7 @@ details .body p{margin:0 0 .6rem}
 details .body p:last-child{margin:0}
 
 /* widget */
-.slot{margin-top:1.6rem;min-height:120px}
+.slot{min-height:320px}
 .loading{display:flex;flex-direction:column;align-items:center;gap:.8rem;padding:2.4rem 1rem;color:var(--ink-2);font-size:.92rem}
 .spinner{width:26px;height:26px;border:2.5px solid var(--line);border-top-color:var(--apricot-2);border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -270,12 +290,13 @@ details .body p:last-child{margin:0}
 .reveal{opacity:1;transform:none;transition:opacity .5s ease,transform .5s ease}
 .reveal.pending{opacity:0;transform:translateY(14px)}
 
-@media (min-width:1001px) and (max-height:820px){
-  .hero .wrap{padding-top:2.1rem;padding-bottom:2.1rem}
-  .hero h1{font-size:clamp(1.9rem,3.6vw,2.7rem)}
-  .lede{font-size:1rem;margin-bottom:1rem}
-  .facts{margin-bottom:1rem}
-  .formcard{padding:1.25rem}
+@media (min-width:1001px) and (max-height:860px){
+  .hero .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+  .hero h1{font-size:clamp(1.75rem,3.2vw,2.35rem);margin-bottom:.5rem}
+  .lede{font-size:.97rem}
+  .kicker{margin-bottom:.6rem}
+  .bar{margin-top:1rem;padding:.85rem .95rem .75rem}
+  .results{padding-top:1.2rem}
 }
 @media (max-width:640px){
   body{font-size:16px}
@@ -316,49 +337,56 @@ details .body p:last-child{margin:0}
 
 <section class="hero" aria-labelledby="heroTitle">
   <div class="wrap">
-    <div>
-      <p class="kicker">Bijgewerkt <time datetime="2026-09-13">13 september 2026</time></p>
-      <h1 id="heroTitle">Energie aanvragen <em>bij verhuizing</em></h1>
-      <p class="lede">Op een nieuw adres staat de levering niet vanzelf op uw naam. Dit is wat u wanneer moet regelen &mdash; en een vergelijking op het verwachte verbruik van uw nieuwe woning.</p>
-      <ul class="facts">
-        <li><span class="n">2 weken</span><span>vooraf melden bij uw leverancier &mdash; dat is de uiterste termijn</span></li>
-        <li><span class="n">5 dagen</span><span>na de verhuisdag meterstanden doorgeven, anders schat de leverancier</span></li>
-        <li><span class="n">1 maand</span><span>maximale opzegtermijn, wettelijk vastgelegd</span></li>
-      </ul>
-      <p class="byline">Door <strong>Hugo Hoornmans</strong> <span>Gratis en vrijblijvend</span></p>
-    </div>
+    <p class="kicker">Bijgewerkt <time datetime="2026-09-13">13 september 2026</time></p>
+    <h1 id="heroTitle">Energie aanvragen <em>bij verhuizing</em></h1>
+    <p class="lede">Vul het adres in waar u naartoe verhuist en zie meteen wat energie daar kost. Melden bij uw leverancier kan tot uiterlijk <strong>2 weken</strong> voor de verhuisdag.</p>
 
-    <div class="formcard" id="vergelijken">
-      <h2>Vergelijk voor uw nieuwe adres</h2>
-      <p class="sub">Vul het adres in waar u naartoe verhuist.</p>
+    <div class="bar" id="vergelijken">
       <div class="seg" data-q="woning" role="group" aria-label="Type woning">
         <button type="button" data-v="appartement" aria-pressed="false">Appartement</button>
         <button type="button" data-v="gemiddeld" aria-pressed="true">Gemiddeld</button>
         <button type="button" data-v="vrijstaand" aria-pressed="false">Vrijstaand</button>
         <button type="button" data-v="geengas" aria-pressed="false">Geen gas</button>
       </div>
-      <div class="grid2">
+      <div class="bar-grid">
         <label class="field"><span>Postcode nieuw adres</span><input class="input" id="postcode" inputmode="text" autocomplete="off" placeholder="1234 AB"></label>
-        <label class="field"><span>Huisnummer</span><input class="input" id="huisnummer" inputmode="numeric" autocomplete="off" placeholder="12"></label>
+        <label class="field"><span>Huisnr.</span><input class="input" id="huisnummer" inputmode="numeric" autocomplete="off" placeholder="12"></label>
+        <label class="field"><span>Stroom kWh</span><input class="input" id="kwh" inputmode="numeric" value="2500"></label>
+        <label class="field"><span>Gas m&sup3;</span><input class="input" id="gas" inputmode="numeric" value="1100"></label>
+        <button class="btn btn-primary" id="submitBtn" type="button">Toon contracten</button>
       </div>
-      <div class="grid2">
-        <label class="field"><span>Stroom per jaar</span><input class="input" id="kwh" inputmode="numeric" value="2500"><span class="hint">kWh &middot; schatting mag</span></label>
-        <label class="field"><span>Gas per jaar</span><input class="input" id="gas" inputmode="numeric" value="1100"><span class="hint">m&sup3; &middot; leeg bij stadsverwarming</span></label>
-      </div>
-      <button class="more" id="moreBtn" type="button" aria-expanded="false">+ Meer instellen</button>
       <div id="moreBox" hidden>
-        <div class="grid2">
-          <label class="field"><span>Teruglevering</span><input class="input" id="terug" inputmode="numeric" value="0"><span class="hint">kWh per jaar</span></label>
-          <label class="field"><span>Toevoeging</span><input class="input" id="toevoeging" autocomplete="off" placeholder="bijv. A"></label>
+        <div class="bar-grid">
+          <label class="field"><span>Teruglevering kWh</span><input class="input" id="terug" inputmode="numeric" value="0"></label>
+          <label class="field"><span>Toevoeging</span><input class="input" id="toevoeging" autocomplete="off" placeholder="A"></label>
         </div>
       </div>
-      <button class="btn btn-primary" id="submitBtn" type="button">Toon contracten voor dit adres</button>
-      <p class="note">Gratis en vrijblijvend &middot; u zit nergens aan vast</p>
+      <div class="bar-foot">
+        <button class="more" id="moreBtn" type="button" aria-expanded="false">+ Meer instellen</button>
+        <span>Gratis en vrijblijvend &middot; u zit nergens aan vast</span>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="wrap"><div class="slot" id="dcSlot" aria-live="polite"></div></div>
+<section class="results" aria-labelledby="resTitle">
+  <div class="wrap">
+    <h2 id="resTitle" class="res-h">Energiecontracten voor uw nieuwe adres</h2>
+    <p class="res-sub">Het volledige aanbod, gesorteerd op laagste jaarprijs. Vul hierboven uw postcode in voor de tarieven van uw eigen netbeheerder.</p>
+    <div class="slot" id="dcSlot" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="section tint" aria-labelledby="factsTitle">
+  <div class="wrap">
+    <h2 id="factsTitle" class="visually-hidden">De drie termijnen</h2>
+    <ul class="factstrip reveal">
+      <li><b>2 weken</b><span>vooraf melden bij uw leverancier &mdash; de uiterste termijn</span></li>
+      <li><b>5 dagen</b><span>na de verhuisdag meterstanden doorgeven, anders schat de leverancier</span></li>
+      <li><b>1 maand</b><span>maximale opzegtermijn, wettelijk vastgelegd</span></li>
+    </ul>
+  </div>
+</section>
 
 <section class="section" id="wanneer" aria-labelledby="wanneerTitle">
   <div class="wrap">
@@ -620,6 +648,7 @@ details .body p:last-child{margin:0}
       woning=b.dataset.v;
       var p=PROFIEL[woning];
       $('#kwh').value=p.kwh;$('#gas').value=p.gas;
+      submit();
     });
   });
   var mb=$('#moreBtn');
@@ -699,7 +728,7 @@ details .body p:last-child{margin:0}
   var mountSeq=0;
   function mountWidget(){
     var seq=++mountSeq;
-    slot.innerHTML='<div class="loading" id="dcLoading"><div class="spinner" aria-hidden="true"></div><p>Contracten ophalen voor uw nieuwe adres…</p></div>';
+    slot.innerHTML='<div class="loading" id="dcLoading"><div class="spinner" aria-hidden="true"></div><p>Het actuele aanbod ophalen…</p></div>';
     window.loadDaisycon(slot,window.compareInput||{});
     var tries=0,poll=setInterval(function(){
       tries++;
@@ -712,16 +741,28 @@ details .body p:last-child{margin:0}
     },250);
   }
 
-  $('#submitBtn').addEventListener('click',function(){
-    window.compareInput={
+  function readForm(){
+    return {
       postcode:$('#postcode').value,huisnummer:$('#huisnummer').value,
       toevoeging:$('#toevoeging')?$('#toevoeging').value:'',
       kwh:$('#kwh').value,gas:$('#gas').value,
       terug:$('#terug')?$('#terug').value:0
     };
+  }
+  function submit(scroll){
+    window.compareInput=readForm();
     mountWidget();
-    slot.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+    if(scroll)slot.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+  }
+  $('#submitBtn').addEventListener('click',function(){submit(true);});
+  $$('#postcode,#huisnummer,#kwh,#gas').forEach(function(el){
+    el.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();submit(true);}});
   });
+
+  /* De bezoeker zocht op 'energie aanvragen' - een handeling, geen vraag.
+     Daarom staat het aanbod er meteen, zonder dat er eerst iets ingevuld
+     of geklikt hoeft te worden. Postcode invullen verfijnt het alleen. */
+  submit(false);
 
   var bar=$('#cookiebar');
   function closeBar(){if(bar)bar.hidden=true;}
