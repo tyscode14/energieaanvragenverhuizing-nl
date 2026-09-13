@@ -348,6 +348,51 @@ details .body p:last-child{margin:0}
   .formcard{padding:1.15rem}
   .grid2{grid-template-columns:1fr}
 }
+
+/* --- mobiel: hamburger vervangt de nav die onder het breekpunt verdween --- */
+.menu{display:none;position:relative}
+.menu>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;
+  width:44px;height:44px;border:1px solid var(--line);border-radius:10px;color:var(--ink);background:transparent}
+.menu>summary::-webkit-details-marker{display:none}
+.menu>summary svg{width:20px;height:20px;display:block}
+.menu[open]>summary{background:var(--paper)}
+.menu-panel{position:absolute;right:0;top:calc(100% + .45rem);min-width:236px;list-style:none;margin:0;
+  padding:.4rem;background:var(--paper);border:1px solid var(--line);border-radius:12px;
+  box-shadow:0 16px 40px rgba(8,14,24,.24);display:grid;gap:.1rem;z-index:70}
+.menu-panel a{display:flex;align-items:center;min-height:44px;padding:.55rem .75rem;border-radius:8px;
+  text-decoration:none;color:var(--ink);font-size:.95rem;font-weight:500}
+.menu-panel a:hover,.menu-panel a:focus-visible{background:rgba(128,128,128,.10);color:var(--apricot-2)}
+@media (max-width:900px){
+  .menu{display:block}
+  /* kruimelpad navigeert nergens heen op een one-pager en kost foldruimte */
+  .crumb{display:none}
+}
+@media (max-width:640px){
+  .site-header .nav{padding-top:.55rem;padding-bottom:.55rem}
+  .hero .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+  .hero h1{font-size:clamp(1.75rem,7.4vw,2.2rem)}
+  .lede{font-size:.97rem}
+  .kicker{margin-bottom:.55rem;font-size:.66rem}
+}
+
+/* De generieke FAQ-regel details summary::after zette ook een '+' op de
+   hamburger. Die is hier niet gewenst. */
+.menu>summary::after{content:none!important;display:none!important}
+.menu>summary::before{content:none!important}
+/* Postcode+huisnummer en stroom+gas passen prima naast elkaar op een telefoon.
+   Alles onder elkaar zetten maakte het formulier onnodig lang en duwde de
+   knop ver onder de vouw. */
+@media (max-width:420px) and (min-width:340px){
+  .grid2{grid-template-columns:1.45fr .85fr}
+  .grid2.usage{grid-template-columns:1fr 1fr}
+  .bar-grid{grid-template-columns:1.45fr .85fr}
+}
+
+/* Nederlandse samenstellingen (salderingsregeling, terugleververgoeding,
+   netbeheerkosten) zijn langer dan de regelbreedte op een telefoon en duwden
+   de pagina horizontaal open. Laat ze breken in plaats van overlopen. */
+body{overflow-wrap:break-word}
+h1,h2,h3,p,li,dt,dd,th,td,summary,strong,b,a{overflow-wrap:break-word}
 </style>
 </head>
 <body>
@@ -367,6 +412,17 @@ details .body p:last-child{margin:0}
       <a href="#ean">EAN-code</a>
       <a href="#vragen">Vragen</a>
     </nav>
+    <details class="menu">
+      <summary aria-label="Menu openen" title="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
+      <ul class="menu-panel" role="list">
+        <li><a href="#vergelijken">Vergelijken</a></li>
+        <li><a href="#wanneer">Wanneer</a></li>
+        <li><a href="#stappen">Stappenplan</a></li>
+        <li><a href="#twee-huizen">Twee huizen</a></li>
+        <li><a href="#ean">EAN-code</a></li>
+        <li><a href="#vragen">Vragen</a></li>
+      </ul>
+    </details>
   </div>
 </header>
 
@@ -888,6 +944,15 @@ details .body p:last-child{margin:0}
     els.forEach(function(el){io.observe(el);});
   }
 })();
+
+  /* sluit het mobiele menu bij klik buiten of Escape */
+  (function(){
+    var m=document.querySelector('.menu');
+    if(!m)return;
+    document.addEventListener('click',function(e){ if(m.open&&!m.contains(e.target))m.open=false; });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&m.open){m.open=false;m.querySelector('summary').focus();} });
+    m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.open=false;});});
+  })();
 </script>
 </body>
 </html>
