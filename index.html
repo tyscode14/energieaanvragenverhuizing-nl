@@ -79,7 +79,7 @@
       "step": [
         { "@type": "HowToStep", "position": 1, "name": "Zoek de EAN-codes van uw nieuwe adres", "text": "Elke aansluiting heeft een eigen EAN-code van 18 cijfers, apart voor stroom en gas. U vindt ze op postcode en huisnummer via het EAN-codeboek, ook voor een adres waar u nog niet woont." },
         { "@type": "HowToStep", "position": 2, "name": "Vergelijk en kies een contract", "text": "Vergelijk op uw verwachte jaarverbruik op het nieuwe adres. Kies vast, variabel of dynamisch en let op de ingangsdatum." },
-        { "@type": "HowToStep", "position": 3, "name": "Meld de verhuizing uiterlijk twee weken vooraf", "text": "Geef uw verhuizing uiterlijk twee weken van tevoren door aan uw energieleverancier. Drie maanden vooraf mag ook." },
+        { "@type": "HowToStep", "position": 3, "name": "Meld de verhuizing uiterlijk twee weken vooraf", "text": "Geef uw verhuizing zo snel mogelijk door aan uw energieleverancier, uiterlijk twee weken van tevoren. Drie maanden vooraf mag ook." },
         { "@type": "HowToStep", "position": 4, "name": "Noteer de meterstanden op de sleuteldag", "text": "Noteer op de dag van de sleuteloverdracht de standen van stroom en gas, op het oude en het nieuwe adres." },
         { "@type": "HowToStep", "position": 5, "name": "Geef de standen binnen vijf dagen door", "text": "Lever de meterstanden binnen vijf dagen na de verhuisdag aan. Doet u dat niet, dan schat de leverancier uw verbruik." }
       ]
@@ -87,7 +87,7 @@
     {
       "@type": "FAQPage",
       "mainEntity": [
-        { "@type": "Question", "name": "Hoe lang van tevoren moet ik energie aanvragen bij een verhuizing?", "acceptedAnswer": { "@type": "Answer", "text": "Meld uw verhuizing uiterlijk twee weken voordat u verhuist bij uw energieleverancier. Eerder mag: veel leveranciers accepteren een melding tot drie maanden vooruit. Wacht u langer, dan loopt u het risico dat de levering op uw nieuwe adres nog niet op uw naam staat." } },
+        { "@type": "Question", "name": "Hoe lang van tevoren moet ik energie aanvragen bij een verhuizing?", "acceptedAnswer": { "@type": "Answer", "text": "ACM ConsuWijzer adviseert het zo snel mogelijk te melden, en uiterlijk twee weken voordat u verhuist. Eerder mag: veel leveranciers accepteren een melding tot drie maanden vooruit. Het is een advies van de toezichthouder en geen wettelijke termijn, maar wacht u langer, dan loopt u het risico dat de levering op uw nieuwe adres nog niet op uw naam staat." } },
         { "@type": "Question", "name": "Betaal ik een opzegvergoeding als ik mijn energiecontract opzeg omdat ik verhuis?", "acceptedAnswer": { "@type": "Answer", "text": "Verhuizen geeft geen vrijstelling: dezelfde regels gelden als bij elke tussentijdse opzegging. Maar de opzegvergoeding is geen boete met een vast bedrag. Het is het werkelijke verlies van de leverancier: het resterende verbruik maal het verschil tussen uw tarief en het huidige tarief. Zijn de energieprijzen sinds het afsluiten gestegen, dan lijdt de leverancier geen verlies en betaalt u niets." } },
         { "@type": "Question", "name": "Kan ik mijn energiecontract op twee adressen tegelijk hebben?", "acceptedAnswer": { "@type": "Answer", "text": "Meestal wel. Volgens ACM ConsuWijzer kunt u uw energiecontract doorgaans tijdelijk op het oude en het nieuwe adres tegelijk gebruiken, bijvoorbeeld tijdens een verbouwing of een overlappende huurperiode. Vraag uw leverancier of dit in uw situatie geldt en vanaf welke datum er twee termijnbedragen lopen." } },
         { "@type": "Question", "name": "Hoe vind ik de EAN-code van mijn nieuwe adres?", "acceptedAnswer": { "@type": "Answer", "text": "Een EAN-code is een uniek nummer van 18 cijfers per aansluiting, met aparte codes voor stroom en gas. U kunt hem opzoeken op postcode en huisnummer via het EAN-codeboek, ook voor een adres waar u nog niet woont. De energie-EAN heeft niets te maken met de streepjescode op een product." } },
@@ -287,6 +287,49 @@ details .body p:last-child{margin:0}
 .footer ul{list-style:none;margin:0;padding:0;display:grid;gap:.38rem}
 .legal{border-top:1px solid var(--navy-3);padding-top:1.2rem;font-size:.8rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 
+/* two-column explainer: prose left, information graphic right */
+.split{display:grid;grid-template-columns:1.04fr .96fr;gap:2.6rem;align-items:start}
+.split>*{min-width:0}
+.split .prose{max-width:none}
+@media (max-width:980px){.split{grid-template-columns:1fr;gap:1.7rem}}
+.viz{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:1.25rem 1.3rem;position:sticky;top:84px}
+.section.tint .viz{background:var(--paper)}
+.section.dark .viz{background:var(--navy-2);border-color:var(--navy-3)}
+@media (max-width:980px){.viz{position:static}}
+.viz-h{font-family:var(--body);font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-2);font-weight:600;margin:0 0 1rem}
+.section.dark .viz-h{color:var(--on-navy-mute)}
+.viz-note{font-size:.78rem;color:var(--ink-2);margin:.9rem 0 0;line-height:1.5}
+.section.dark .viz-note{color:var(--on-navy-mute)}
+.viz svg{width:100%;height:auto;display:block}
+
+/* NL vs BE compare */
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.vs>*{min-width:0}
+.vs-col{padding:.95rem 1rem}
+.vs-col+.vs-col{border-left:1px solid var(--line)}
+.vs-col.nl{background:var(--apricot-soft)}
+.vs-flag{font-family:var(--display);font-weight:700;font-size:.95rem;margin:0 0 .6rem;display:flex;align-items:center;gap:.45rem}
+.vs-flag i{width:18px;height:12px;border-radius:2px;display:inline-block;flex:0 0 18px}
+.vs-flag i.be{background:linear-gradient(90deg,#111 0 33%,#FDDA24 33% 66%,#EF3340 66%)}
+.vs-flag i.nl{background:linear-gradient(180deg,#AE1C28 0 33%,#fff 33% 66%,#21468B 66%)}
+.vs ul{list-style:none;margin:0;padding:0;display:grid;gap:.42rem}
+.vs li{font-size:.85rem;color:var(--ink-2);display:flex;gap:.4rem;align-items:flex-start;line-height:1.45}
+.vs li b{color:var(--ink);font-weight:600}
+.vs .tick{flex:0 0 auto;font-weight:700}
+.vs .yes{color:var(--ok)}
+.vs .no{color:#B4434A}
+
+/* escalation ladder */
+.ladder{list-style:none;margin:0;padding:0;counter-reset:l}
+.ladder li{counter-increment:l;position:relative;padding:0 0 1.05rem 2.3rem}
+.ladder li::before{content:counter(l);position:absolute;left:0;top:.05rem;width:1.55rem;height:1.55rem;border-radius:50%;background:var(--paper-2);color:var(--navy);font-family:var(--display);font-weight:700;font-size:.78rem;display:flex;align-items:center;justify-content:center}
+.ladder li::after{content:"";position:absolute;left:.74rem;top:1.75rem;bottom:.15rem;width:1.5px;background:var(--line)}
+.ladder li:last-child{padding-bottom:0}
+.ladder li:last-child::after{display:none}
+.ladder li.hot::before{background:var(--apricot);color:#2A1A06}
+.ladder b{display:block;font-size:.88rem;color:var(--ink);font-weight:600;line-height:1.35}
+.ladder span{display:block;font-size:.8rem;color:var(--ink-2);line-height:1.45;margin-top:.12rem}
+
 .reveal{opacity:1;transform:none;transition:opacity .5s ease,transform .5s ease}
 .reveal.pending{opacity:0;transform:translateY(14px)}
 
@@ -339,7 +382,7 @@ details .body p:last-child{margin:0}
   <div class="wrap">
     <p class="kicker">Bijgewerkt <time datetime="2026-09-13">13 september 2026</time></p>
     <h1 id="heroTitle">Energie aanvragen <em>bij verhuizing</em></h1>
-    <p class="lede">Vul het adres in waar u naartoe verhuist en zie meteen wat energie daar kost. Melden bij uw leverancier kan tot uiterlijk <strong>2 weken</strong> voor de verhuisdag.</p>
+    <p class="lede">Vul het adres in waar u naartoe verhuist en zie meteen wat energie daar kost. Meld het zo snel mogelijk bij uw leverancier &mdash; <strong>uiterlijk 2 weken</strong> voor de verhuisdag.</p>
 
     <div class="bar" id="vergelijken">
       <div class="seg" data-q="woning" role="group" aria-label="Type woning">
@@ -381,9 +424,9 @@ details .body p:last-child{margin:0}
   <div class="wrap">
     <h2 id="factsTitle" class="visually-hidden">De drie termijnen</h2>
     <ul class="factstrip reveal">
-      <li><b>2 weken</b><span>vooraf melden bij uw leverancier &mdash; de uiterste termijn</span></li>
+      <li><b>2 weken</b><span>uiterste moment om de verhuizing te melden &mdash; ACM adviseert zo snel mogelijk</span></li>
       <li><b>5 dagen</b><span>na de verhuisdag meterstanden doorgeven, anders schat de leverancier</span></li>
-      <li><b>1 maand</b><span>maximale opzegtermijn, wettelijk vastgelegd</span></li>
+      <li><b>1 maand</b><span>de opzegtermijn staat in uw contract en is maximaal &eacute;&eacute;n maand</span></li>
     </ul>
   </div>
 </section>
@@ -399,7 +442,7 @@ details .body p:last-child{margin:0}
       <article class="card reveal">
         <span class="stat">2 weken</span>
         <h3>De uiterste termijn</h3>
-        <p>ACM ConsuWijzer is hier eenduidig: meld uw verhuizing uiterlijk twee weken voordat u verhuist bij uw energieleverancier. Dit is een ondergrens, geen streefdatum.</p>
+        <p>ACM ConsuWijzer is hier eenduidig: &ldquo;Meld bij uw energieleverancier zo snel mogelijk dat u gaat verhuizen. Doe dit uiterlijk 2 weken voordat u verhuist.&rdquo; Twee weken is dus de ondergrens, niet de streefdatum &mdash; en het is een advies van de toezichthouder, geen wettelijke termijn.</p>
       </article>
       <article class="card reveal">
         <span class="stat">3 maanden</span>
@@ -432,7 +475,7 @@ details .body p:last-child{margin:0}
         <p>Niet op uw huidige verbruik. Een groter huis, een ander bouwjaar of stadsverwarming verandert het beeld volledig. Weet u het niet, dan is een schatting op woningtype prima om mee te beginnen.</p>
       </li>
       <li>
-        <h3>Meld de verhuizing uiterlijk twee weken vooraf</h3>
+        <h3>Meld de verhuizing zo snel mogelijk, uiterlijk twee weken vooraf</h3>
         <p>Bij uw huidige leverancier &eacute;n bij de nieuwe, als u overstapt. Geef de sleuteldatum door, niet de datum waarop u de meubels verplaatst.</p>
       </li>
       <li>
@@ -454,7 +497,8 @@ details .body p:last-child{margin:0}
       <h2 id="tweeTitle">Twee huizen tegelijk: mag u &eacute;&eacute;n contract op twee adressen hebben?</h2>
       <p>Bij een verbouwing of een overlappende huurperiode betaalt u een periode voor twee woningen. Dit is hoe dat werkt.</p>
     </header>
-    <div class="prose reveal">
+    <div class="split">
+<div class="prose reveal">
       <p>Volgens ACM ConsuWijzer kunt u uw energiecontract <strong>doorgaans tijdelijk op het oude en het nieuwe adres tegelijk</strong> gebruiken. U hoeft dus niet per se twee losse contracten af te sluiten, en u hoeft de overstap niet exact op de sleuteldag te laten vallen.</p>
       <p>Wat u wel moet weten: vanaf het moment dat beide aansluitingen op uw naam staan, lopen er ook <strong>twee termijnbedragen</strong>. Beide adressen hebben hun eigen aansluiting, hun eigen netbeheerkosten en hun eigen vermindering energiebelasting. Die vaste kosten lopen door, ook in een leegstaande woning waar u niets verbruikt.</p>
       <div class="callout">
@@ -462,6 +506,26 @@ details .body p:last-child{margin:0}
       </div>
       <p>Verhuurt of verkoopt u de oude woning, dan eindigt uw levering daar op de datum van overdracht &mdash; niet op het moment dat u de laatste doos ophaalt. De meterstanden van die dag bepalen uw eindafrekening.</p>
     </div>
+<aside class="viz reveal">
+  <p class="viz-h">De overlapperiode</p>
+  <svg viewBox="0 0 420 176" role="img" aria-labelledby="ovTitle ovDesc">
+    <title id="ovTitle">Tijdlijn van de overlapperiode tussen twee adressen</title>
+    <desc id="ovDesc">De levering op het oude adres loopt door tot de overdracht, terwijl de levering op het nieuwe adres al is gestart. In die overlap betaalt u twee termijnbedragen.</desc>
+    <rect x="150" y="24" width="112" height="128" rx="6" fill="#F0A860" opacity=".16"/>
+    <text x="206" y="18" text-anchor="middle" font-family="Instrument,sans-serif" font-size="11" font-weight="600" fill="#D98B3C">overlap</text>
+    <text x="20" y="52" font-family="Instrument,sans-serif" font-size="11.5" font-weight="600" fill="#5B6676">Oud adres</text>
+    <rect x="20" y="60" width="242" height="20" rx="10" fill="#16233D"/>
+    <text x="30" y="74" font-family="Instrument,sans-serif" font-size="10.5" fill="#F6F2EA">levering loopt door tot overdracht</text>
+    <text x="20" y="110" font-family="Instrument,sans-serif" font-size="11.5" font-weight="600" fill="#5B6676">Nieuw adres</text>
+    <rect x="150" y="118" width="250" height="20" rx="10" fill="#D98B3C"/>
+    <text x="160" y="132" font-family="Instrument,sans-serif" font-size="10.5" fill="#fff">levering gestart op uw naam</text>
+    <line x1="150" y1="24" x2="150" y2="152" stroke="#D98B3C" stroke-width="1.5" stroke-dasharray="3 3"/>
+    <line x1="262" y1="24" x2="262" y2="152" stroke="#D98B3C" stroke-width="1.5" stroke-dasharray="3 3"/>
+    <text x="206" y="168" text-anchor="middle" font-family="Instrument,sans-serif" font-size="11" font-weight="600" fill="#161C26">2 termijnbedragen tegelijk</text>
+  </svg>
+  <p class="viz-note">Beide aansluitingen hebben in die periode hun eigen netbeheerkosten en hun eigen vermindering energiebelasting. Die vaste kosten lopen door, ook als het verbruik op het oude adres nul is.</p>
+</aside>
+</div>
   </div>
 </section>
 
@@ -488,7 +552,7 @@ details .body p:last-child{margin:0}
     </div>
     <div class="prose reveal" style="margin-top:1.6rem">
       <p style="color:var(--on-navy-mute)">Drie voorwaarden moeten allemaal gelden voordat er &uuml;berhaupt iets in rekening mag worden gebracht: het is een contract voor bepaalde tijd, de looptijd is nog niet verstreken, en beide punten staan in uw contract. Ontbreekt er &eacute;&eacute;n, dan is er geen grond voor een vergoeding.</p>
-      <p style="color:var(--on-navy-mute)">De opzegtermijn zelf staat in uw contract en is <strong style="color:var(--on-navy)">wettelijk maximaal &eacute;&eacute;n maand</strong>, ingaand op de dag nadat u opzegt.</p>
+      <p style="color:var(--on-navy-mute)">De opzegtermijn zelf staat in uw contract en is <strong style="color:var(--on-navy)">maximaal &eacute;&eacute;n maand</strong>, ingaand op de dag nadat u opzegt.</p>
     </div>
   </div>
 </section>
@@ -532,13 +596,39 @@ details .body p:last-child{margin:0}
       <h2 id="overnameTitle">Het energieovernamedocument bestaat niet in Nederland</h2>
       <p>Als u hierop zoekt en Belgische pagina&rsquo;s krijgt: dat klopt, en dat is precies het probleem.</p>
     </header>
-    <div class="prose reveal">
+    <div class="split">
+<div class="prose reveal">
       <p>Het <strong>energieovernamedocument</strong> is een Belgisch instrument. In Vlaanderen en Walloni&euml; vullen de vertrekkende en de nieuwe bewoner samen een formulier in waarop de meterstanden worden vastgelegd, beide partijen tekenen, en alle Belgische leveranciers zijn verplicht het te accepteren. De Vlaamse regulator VREG publiceert er een standaardversie van.</p>
       <p><strong>In Nederland bestaat zo&rsquo;n verplicht document niet.</strong> De Nederlandse procedure is losser: beide bewoners geven hun eigen meterstanden door aan hun eigen leverancier, binnen vijf dagen na de verhuisdag. Er is geen formulier dat u moet indienen en geen handtekening die iemand van u mag eisen.</p>
       <div class="callout">
         <p><strong>Doe het toch.</strong> Noteer de standen samen met de vorige bewoner en laat beiden ondertekenen, of maak simpelweg een foto van de meterkast met de standen leesbaar. Het is niet verplicht, maar het is het enige bewijs dat u heeft als de eindafrekening van de vorige bewoner later op uw beginstand blijkt te steunen.</p>
       </div>
     </div>
+<aside class="viz reveal">
+  <p class="viz-h">Belgi&euml; versus Nederland</p>
+  <div class="vs">
+    <div class="vs-col">
+      <p class="vs-flag"><i class="be" aria-hidden="true"></i>Belgi&euml;</p>
+      <ul>
+        <li><span class="tick yes" aria-hidden="true">&#10003;</span><span><b>Vast formulier</b> &mdash; het energieovernamedocument</span></li>
+        <li><span class="tick yes" aria-hidden="true">&#10003;</span><span><b>Beide partijen tekenen</b> voor de meterstanden</span></li>
+        <li><span class="tick yes" aria-hidden="true">&#10003;</span><span>Alle leveranciers <b>moeten</b> het accepteren</span></li>
+        <li><span class="tick yes" aria-hidden="true">&#10003;</span><span>Standaardversie via de regulator VREG</span></li>
+      </ul>
+    </div>
+    <div class="vs-col nl">
+      <p class="vs-flag"><i class="nl" aria-hidden="true"></i>Nederland</p>
+      <ul>
+        <li><span class="tick no" aria-hidden="true">&times;</span><span><b>Geen formulier</b> en geen verplicht document</span></li>
+        <li><span class="tick no" aria-hidden="true">&times;</span><span><b>Geen handtekening</b> die iemand kan eisen</span></li>
+        <li><span class="tick yes" aria-hidden="true">&#10003;</span><span>Ieder geeft <b>zelf</b> door aan de eigen leverancier</span></li>
+        <li><span class="tick yes" aria-hidden="true">&#10003;</span><span>Termijn: <b>binnen 5 dagen</b> na de verhuisdag</span></li>
+      </ul>
+    </div>
+  </div>
+  <p class="viz-note">Zoekt u op &ldquo;energieovernamedocument&rdquo;, dan komt u vrijwel altijd uit bij Belgische bronnen zoals Fluvius of de VREG. Dat is geen fout van de zoekmachine: het document bestaat hier simpelweg niet.</p>
+</aside>
+</div>
   </div>
 </section>
 
@@ -549,11 +639,24 @@ details .body p:last-child{margin:0}
       <h2 id="nietsTitle">Wat gebeurt er als u niets regelt?</h2>
       <p>Er is geen stilzwijgende levering waar u op kunt terugvallen. Uiteindelijk volgt afsluiting.</p>
     </header>
-    <div class="prose reveal">
+    <div class="split">
+<div class="prose reveal">
       <p>Netbeheerders zijn <strong>wettelijk verplicht</strong> een pand zonder actief leveringscontract af te sluiten. Dat gebeurt niet van de ene op de andere dag: u krijgt eerst een brief met een uiterste datum waarop er een contract moet lopen. Reageert u niet, dan volgt de afsluiting alsnog.</p>
       <p>Afsluiten gebeurt in de meterkast door de hoofdzekering te verwijderen en te verzegelen. Lukt dat niet, dan gebeurt het buiten: de kabel of leiding wordt opgegraven en doorgesneden, waar bij Enexis drie monteurs en speciaal materieel aan te pas komen. Opnieuw aansluiten kost vervolgens apart geld, en dat is aanzienlijk duurder dan het contract dat u had moeten afsluiten.</p>
       <p>Ook een <strong>leegstaande woning heeft een contract nodig</strong>. Staat de woning tijdelijk leeg tijdens een verbouwing, dan blijft er een leveringscontract vereist, ook als het verbruik nul is.</p>
     </div>
+<aside class="viz reveal">
+  <p class="viz-h">Wat er dan gebeurt</p>
+  <ol class="ladder">
+    <li><b>Geen actief leveringscontract</b><span>De netbeheerder ziet een aansluiting zonder leverancier op uw adres.</span></li>
+    <li><b>Brief met een uiterste datum</b><span>U krijgt de gelegenheid alsnog een contract af te sluiten v&oacute;&oacute;r die datum.</span></li>
+    <li class="hot"><b>Afsluiting in de meterkast</b><span>De hoofdzekering wordt verwijderd en verzegeld met een hangslot.</span></li>
+    <li class="hot"><b>Of ondergronds afsluiten</b><span>Lukt het binnen niet, dan wordt de kabel of leiding opgegraven en doorgesneden &mdash; bij Enexis met drie monteurs en speciaal materieel.</span></li>
+    <li><b>Heraansluiting kost apart geld</b><span>Aanzienlijk meer dan het contract dat u had moeten afsluiten.</span></li>
+  </ol>
+  <p class="viz-note">Netbeheerders zijn hiertoe wettelijk verplicht: een pand zonder leveringscontract mag niet aangesloten blijven. Ook een leegstaande woning heeft dus een contract nodig.</p>
+</aside>
+</div>
   </div>
 </section>
 
@@ -564,7 +667,7 @@ details .body p:last-child{margin:0}
       <h2 id="faqTitle">Vragen over energie aanvragen bij een verhuizing</h2>
     </header>
     <div class="prose reveal" style="max-width:72ch">
-      <details><summary>Hoe lang van tevoren moet ik energie aanvragen bij een verhuizing?</summary><div class="body"><p>Meld uw verhuizing uiterlijk twee weken voordat u verhuist bij uw energieleverancier. Eerder mag: veel leveranciers accepteren een melding tot drie maanden vooruit. Wacht u langer, dan loopt u het risico dat de levering op uw nieuwe adres nog niet op uw naam staat.</p></div></details>
+      <details><summary>Hoe lang van tevoren moet ik energie aanvragen bij een verhuizing?</summary><div class="body"><p>ACM ConsuWijzer adviseert het zo snel mogelijk te melden, en uiterlijk twee weken voordat u verhuist. Eerder mag: veel leveranciers accepteren een melding tot drie maanden vooruit. Het is een advies van de toezichthouder en geen wettelijke termijn, maar wacht u langer, dan loopt u het risico dat de levering op uw nieuwe adres nog niet op uw naam staat.</p></div></details>
       <details><summary>Betaal ik een opzegvergoeding als ik opzeg omdat ik verhuis?</summary><div class="body"><p>Verhuizen geeft geen vrijstelling: dezelfde regels gelden als bij elke tussentijdse opzegging. Maar de opzegvergoeding is geen boete met een vast bedrag, het is het werkelijke verlies van de leverancier. Zijn de energieprijzen sinds het afsluiten gestegen, dan lijdt de leverancier geen verlies en betaalt u niets.</p></div></details>
       <details><summary>Kan ik mijn energiecontract op twee adressen tegelijk hebben?</summary><div class="body"><p>Meestal wel. Volgens ACM ConsuWijzer kunt u uw contract doorgaans tijdelijk op het oude en het nieuwe adres tegelijk gebruiken. Houd er rekening mee dat er dan twee termijnbedragen lopen, met voor elk adres eigen netbeheerkosten.</p></div></details>
       <details><summary>Hoe vind ik de EAN-code van mijn nieuwe adres?</summary><div class="body"><p>Een EAN-code is een uniek nummer van 18 cijfers per aansluiting, met aparte codes voor stroom en gas. U kunt hem opzoeken op postcode en huisnummer via het EAN-codeboek, ook voor een adres waar u nog niet woont. De energie-EAN heeft niets te maken met de streepjescode op een product.</p></div></details>
