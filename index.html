@@ -432,6 +432,49 @@ h1,h2,h3,p,li,dt,dd,th,td,summary,strong,b,a{overflow-wrap:break-word}
 .vh-hero-meta b{color:var(--on-navy);font-weight:600}
 @media (min-width:1001px) and (max-height:860px){.vh-labels{margin-top:.8rem}.vh-hero-meta{margin-top:.6rem}}
 @media (max-width:640px){.vh-labels{margin-top:.7rem;gap:.35rem}.vh-labels li{font-size:.76rem;padding:.24rem .6rem .24rem .5rem}.vh-hero-meta{display:none}}
+
+/* ---- search-bar hero ---- */
+.vh-hero-center{text-align:center;max-width:1000px!important}
+.vh-hero-center .vh-lede{margin-left:auto;margin-right:auto;max-width:62ch}
+.vh-hero-center .vh-bar{text-align:left;padding:1.2rem 1.3rem 1rem}
+.vh-hero-center .vh-hero-meta{justify-content:center;margin-top:1rem}
+.vh-sbar-wrap{position:relative}
+.vh-sbar-label{display:block;font-weight:700;font-size:.92rem;margin-bottom:.5rem;color:var(--ink)}
+.vh-sbar{position:relative;display:flex;align-items:center;gap:.5rem;background:#fff;border:2px solid var(--navy);border-radius:16px;padding:.45rem .45rem .45rem 1rem;box-shadow:0 10px 30px -14px rgba(10,18,34,.45);transition:box-shadow .15s,border-color .15s}
+.vh-sbar:focus-within{box-shadow:0 0 0 4px rgba(240,168,96,.5),0 10px 30px -14px rgba(10,18,34,.45)}
+.vh-sbar.is-bad{border-color:#B3261E}
+.vh-sbar-ico{width:24px;height:24px;flex:none;color:var(--navy)}
+.vh-sbar input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;font-size:1.22rem;font-weight:600;color:var(--ink);padding:.95rem .2rem}
+.vh-sbar input::placeholder{color:#7A8494;font-weight:500}
+.vh-sbar-btn{flex:none;width:auto!important;margin:0!important;padding:1.05rem 1.6rem!important;font-size:1.12rem!important;border-radius:12px;white-space:nowrap}
+.vh-sbar-btn svg{width:20px;height:20px}
+.vh-sbar-list{position:absolute;left:-2px;right:-2px;top:calc(100% + 6px);z-index:30;list-style:none;margin:0;padding:.35rem;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 24px 50px -18px rgba(16,24,40,.45);max-height:320px;overflow:auto}
+.vh-sbar-list li{display:flex;flex-wrap:wrap;gap:.1rem .7rem;align-items:baseline;padding:.75rem .85rem;border-radius:10px;cursor:pointer;font-size:1rem;color:var(--ink)}
+.vh-sbar-list li small{color:var(--ink-2);font-size:.86rem}
+.vh-sbar-list li[aria-selected="true"],.vh-sbar-list li:hover{background:var(--apricot-soft)}
+.vh-sbar-list li.is-empty{cursor:default;color:var(--ink-2)}
+.vh-sbar-hint{margin:.55rem 0 0;font-size:.84rem;color:var(--ink-2)}
+.vh-sbar-error{margin:.55rem 0 0;font-size:.88rem;color:#B3261E;font-weight:600}
+.vh-usage-sum{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.6rem;margin-top:1rem;padding:.75rem 1rem;background:var(--paper-2);border-radius:12px;font-size:.93rem;color:var(--ink-2)}
+.vh-usage-sum b{color:var(--ink)}
+.vh-adjust-btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:.45rem .95rem;font:inherit;font-weight:700;font-size:.88rem;cursor:pointer;color:var(--navy)}
+.vh-adjust-btn[aria-expanded="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.vh-adjust{margin-top:1rem;padding-top:1rem;border-top:1px solid var(--line)}
+.vh-adjust .vh-bar-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.vh-labels-tool{justify-content:flex-start;margin-top:.9rem}
+.vh-labels-tool li{color:var(--ink);border-color:rgba(240,168,96,.7);background:var(--apricot-soft)}
+.vh-labels-tool li::before{color:var(--apricot-2)}
+.vh-slot-prompt{margin:0;padding:1.4rem 1.2rem;border:1.5px dashed var(--line);border-radius:var(--r);background:var(--paper-2);color:var(--ink-2);font-size:.98rem;text-align:center}
+@media (max-width:860px){.vh-adjust .vh-bar-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){
+  .vh-hero-center{text-align:left}
+  .vh-hero-center .vh-bar{padding:.9rem .85rem .8rem}
+  .vh-sbar{flex-wrap:wrap;padding:.4rem .4rem .4rem .8rem}
+  .vh-sbar input{font-size:1.05rem;padding:.8rem .1rem;flex-basis:calc(100% - 40px)}
+  .vh-sbar-btn{flex-basis:100%;justify-content:center}
+  .vh-sbar-hint{display:none}
+  .vh-usage-sum{font-size:.84rem;margin-top:.7rem;padding:.6rem .8rem}
+}
 </style>
 <script src="/v.js" defer data-site="energieaanvragenverhuizing.nl"></script>
 <script src="/dc-fix.js"></script>
@@ -463,42 +506,55 @@ h1,h2,h3,p,li,dt,dd,th,td,summary,strong,b,a{overflow-wrap:break-word}
 <main id="main">
 
 <section class="vh-hero" aria-labelledby="vh-heroTitle">
-  <div class="vh-wrap">
+  <div class="vh-wrap vh-hero-center">
     <h1 id="vh-heroTitle">Energie aanvragen <em>bij verhuizing</em></h1>
     <p class="vh-lede">Energie aanvragen bij verhuizing? Meld stroom en gas <strong>uiterlijk 2 weken vooraf</strong> bij uw leverancier, geef binnen 5 dagen de meterstanden door en vergelijk hieronder wat energie op uw nieuwe adres kost.</p>
-    <ul class="vh-labels" aria-label="Kenmerken van deze vergelijker">
-      <li>Vergelijk op uw nieuwe adres</li>
-      <li>Uitleg volgens ACM-termijnen</li>
-      <li>Gratis overnamedocument</li>
-      <li>Gratis en vrijblijvend</li>
-    </ul>
-    <p class="vh-hero-meta"><span>Bijgewerkt <time datetime="2026-09-13">13 september 2026</time></span><span>Door <b>Hugo Hoornmans</b></span></p>
 
     <div class="vh-bar" id="vergelijken">
-      <div class="vh-seg" data-q="woning" role="group" aria-label="Type woning">
-        <button type="button" data-v="appartement" aria-pressed="false">Appartement</button>
-        <button type="button" data-v="gemiddeld" aria-pressed="true">Gemiddeld</button>
-        <button type="button" data-v="vrijstaand" aria-pressed="false">Vrijstaand</button>
-        <button type="button" data-v="geengas" aria-pressed="false">Geen gas</button>
+      <div class="vh-sbar-wrap">
+        <label class="vh-sbar-label" for="vh-adres">Uw nieuwe adres</label>
+        <div class="vh-sbar" id="vh-sbar">
+          <svg class="vh-sbar-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          <input id="vh-adres" type="text" inputmode="search" autocomplete="off" spellcheck="false"
+            placeholder="Postcode en huisnummer van uw nieuwe adres"
+            role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="vh-adresList" aria-describedby="vh-adresHint">
+          <button class="vh-btn vh-btn-primary vh-sbar-btn" id="vh-submitBtn" type="button">Toon contracten<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <ul class="vh-sbar-list" id="vh-adresList" role="listbox" aria-label="Adressuggesties" hidden></ul>
+        </div>
+        <p class="vh-sbar-hint" id="vh-adresHint">Bijvoorbeeld <b>1014 BL 888</b> of <b>Haarlemmerweg 888 Amsterdam</b></p>
+        <p class="vh-sbar-error" id="vh-adresError" role="alert" hidden>Kies een adres uit de lijst, of typ postcode en huisnummer.</p>
       </div>
-      <div class="vh-bar-grid">
-        <label class="vh-field"><span>Postcode nieuw adres</span><input class="vh-input" id="vh-postcode" inputmode="text" autocomplete="off" placeholder="1234 AB"></label>
-        <label class="vh-field"><span>Huisnr.</span><input class="vh-input" id="vh-huisnummer" inputmode="numeric" autocomplete="off" placeholder="12"></label>
-        <label class="vh-field"><span>Stroom kWh</span><input class="vh-input" id="vh-kwh" inputmode="numeric" value="2500"></label>
-        <label class="vh-field"><span>Gas m&sup3;</span><input class="vh-input" id="vh-gas" inputmode="numeric" value="1100"></label>
-        <button class="vh-btn vh-btn-primary" id="vh-submitBtn" type="button">Toon contracten</button>
+      <div class="vh-usage-sum">
+        <span>Verbruik: <b id="vh-sumText">Gemiddeld huishouden · 2.500 kWh stroom · 1.100 m³ gas</b></span>
+        <button type="button" class="vh-adjust-btn" id="vh-adjustBtn" aria-expanded="false" aria-controls="vh-adjust">Aanpassen</button>
       </div>
-      <div id="vh-moreBox" hidden>
+      <ul class="vh-labels vh-labels-tool" aria-label="Kenmerken van deze vergelijker">
+        <li>Vergelijk op uw nieuwe adres</li>
+        <li>Uitleg volgens ACM-termijnen</li>
+        <li>Gratis overnamedocument</li>
+        <li>Gratis en vrijblijvend</li>
+      </ul>
+      <div class="vh-adjust" id="vh-adjust" hidden>
+        <div class="vh-seg" data-q="woning" role="group" aria-label="Type woning">
+          <button type="button" data-v="appartement" aria-pressed="false">Appartement</button>
+          <button type="button" data-v="gemiddeld" aria-pressed="true">Gemiddeld</button>
+          <button type="button" data-v="vrijstaand" aria-pressed="false">Vrijstaand</button>
+          <button type="button" data-v="geengas" aria-pressed="false">Geen gas</button>
+        </div>
         <div class="vh-bar-grid">
+          <label class="vh-field vh-visually-hidden" aria-hidden="true"><span>Postcode nieuw adres</span><input class="vh-input" id="vh-postcode" inputmode="text" autocomplete="off" placeholder="1234 AB"></label>
+          <label class="vh-field vh-visually-hidden" aria-hidden="true"><span>Huisnr.</span><input class="vh-input" id="vh-huisnummer" inputmode="numeric" autocomplete="off" placeholder="12"></label>
+          <label class="vh-field"><span>Stroom kWh</span><input class="vh-input" id="vh-kwh" inputmode="numeric" value="2500"></label>
+          <label class="vh-field"><span>Gas m&sup3;</span><input class="vh-input" id="vh-gas" inputmode="numeric" value="1100"></label>
           <label class="vh-field"><span>Teruglevering kWh</span><input class="vh-input" id="vh-terug" inputmode="numeric" value="0"></label>
           <label class="vh-field"><span>Toevoeging</span><input class="vh-input" id="vh-toevoeging" autocomplete="off" placeholder="A"></label>
         </div>
       </div>
       <div class="vh-bar-foot">
-        <button class="vh-more" id="vh-moreBtn" type="button" aria-expanded="false">+ Meer instellen</button>
         <span>U zit nergens aan vast</span>
       </div>
     </div>
+    <p class="vh-hero-meta"><span>Bijgewerkt <time datetime="2026-09-13">13 september 2026</time></span><span>Door <b>Hugo Hoornmans</b></span></p>
   </div>
 </section>
 
@@ -506,7 +562,7 @@ h1,h2,h3,p,li,dt,dd,th,td,summary,strong,b,a{overflow-wrap:break-word}
   <div class="vh-wrap">
     <h2 id="vh-resTitle" class="vh-res-h">Energiecontracten voor uw nieuwe adres</h2>
     <p class="vh-res-sub">Het aanbod van de aangesloten leveranciers, gesorteerd op laagste jaarprijs. Vul hierboven uw postcode in voor de tarieven van uw eigen netbeheerder.</p>
-    <div class="vh-slot" id="dcSlot" aria-live="polite"></div>
+    <div class="vh-slot" id="dcSlot" aria-live="polite"><p class="vh-slot-prompt">Vul hierboven uw nieuwe adres in om de contracten te zien.</p></div>
   </div>
 </section>
 
@@ -836,11 +892,11 @@ h1,h2,h3,p,li,dt,dd,th,td,summary,strong,b,a{overflow-wrap:break-word}
       woning=b.dataset.v;
       var p=PROFIEL[woning];
       $('#vh-kwh').value=p.kwh;$('#vh-gas').value=p.gas;
-      submit();
+      if(mounted&&$('#vh-postcode').value)submit();
     });
   });
   var mb=$('#vh-moreBtn');
-  mb.addEventListener('click',function(){
+  if(mb)mb.addEventListener('click',function(){
     var box=$('#vh-moreBox'),open=box.hidden;
     box.hidden=!open;mb.setAttribute('aria-expanded',String(open));
     mb.textContent=open?'− Minder instellen':'+ Meer instellen';
@@ -905,7 +961,7 @@ h1,h2,h3,p,li,dt,dd,th,td,summary,strong,b,a{overflow-wrap:break-word}
     document.body.appendChild(sc);
   };
 
-  var mountSeq=0;
+  var mountSeq=0,mounted=false;
   function mountWidget(){
     var seq=++mountSeq;
     slot.innerHTML='<div class="vh-loading" id="vh-dcLoading"><div class="vh-spinner" aria-hidden="true"></div><p>Het actuele aanbod ophalen…</p></div>';
@@ -931,15 +987,15 @@ h1,h2,h3,p,li,dt,dd,th,td,summary,strong,b,a{overflow-wrap:break-word}
   }
   function submit(scroll){
     window.compareInput=readForm();
+    mounted=true;
     mountWidget();
     if(scroll)slot.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
   }
   $('#vh-submitBtn').addEventListener('click',function(){submit(true);});
   $$('#vh-postcode,#vh-huisnummer,#vh-kwh,#vh-gas').forEach(function(el){
-    el.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();submit(true);}});
+    el.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();$('#vh-submitBtn').click();}});
   });
 
-  submit(false);
 
   var bar=$('#vh-cookiebar');
   function closeBar(){if(bar)bar.hidden=true;}
@@ -978,6 +1034,107 @@ h1,h2,h3,p,li,dt,dd,th,td,summary,strong,b,a{overflow-wrap:break-word}
     document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&m.open){m.open=false;m.querySelector('summary').focus();} });
     m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.open=false;});});
   })();
+</script>
+
+<script>
+(function(){
+  var adres = document.getElementById('vh-adres'), list = document.getElementById('vh-adresList');
+  var bar = document.getElementById('vh-sbar'), err = document.getElementById('vh-adresError');
+  var btn = document.getElementById('vh-submitBtn');
+  var pc = document.getElementById('vh-postcode'), hn = document.getElementById('vh-huisnummer'), tv = document.getElementById('vh-toevoeging');
+  var kwh = document.getElementById('vh-kwh'), gas = document.getElementById('vh-gas'), terug = document.getElementById('vh-terug');
+  var adjBtn = document.getElementById('vh-adjustBtn'), adj = document.getElementById('vh-adjust'), sum = document.getElementById('vh-sumText');
+  var items = [], active = -1, timer = null, seq = 0, chosen = null;
+  /* same values as the page's PROFIEL; "Gemiddeld" (2500/1100) is the default */
+  var PRESET = {appartement:[1800,700], gemiddeld:[2500,1100], vrijstaand:[3900,1900], geengas:[3200,0]};
+  var NAMES = {gemiddeld: 'Gemiddeld huishouden', geengas: 'Woning zonder gas'};
+  if(!kwh.value) kwh.value = '2500';
+  if(!gas.value) gas.value = '1100';
+
+  function nl(n){ return Number(n).toLocaleString('nl-NL'); }
+  function updateSum(){
+    var pressed = document.querySelector('.vh-seg[data-q="woning"] button[aria-pressed="true"]');
+    var k = parseInt(kwh.value,10)||0, g = parseInt(gas.value,10)||0, t = terug ? (parseInt(terug.value,10)||0) : 0;
+    var v = pressed && pressed.dataset.v, pr = v && PRESET[v];
+    var name = pr && pr[0] === k && pr[1] === g ? (NAMES[v] || pressed.textContent.trim()) + ' · ' : '';
+    sum.textContent = name + nl(k) + ' kWh stroom · ' + (g ? nl(g) + ' m³ gas' : 'geen gas') + (t ? ' · ' + nl(t) + ' kWh teruglevering' : '');
+  }
+  var host = document.getElementById('vergelijken');
+  host.addEventListener('input', updateSum); host.addEventListener('change', updateSum); host.addEventListener('click', function(){ setTimeout(updateSum, 0); });
+  updateSum();
+  adjBtn.addEventListener('click', function(){
+    var open = adj.hidden; adj.hidden = !open; adjBtn.setAttribute('aria-expanded', String(open));
+    adjBtn.textContent = open ? 'Sluiten' : 'Aanpassen';
+  });
+
+  /* ---- address suggestions (PDOK Locatieserver, BAG addresses) ---- */
+  function close(){ list.hidden = true; adres.setAttribute('aria-expanded','false'); active = -1; adres.removeAttribute('aria-activedescendant'); }
+  function render(){
+    list.innerHTML = '';
+    if(!items.length){ var e = document.createElement('li'); e.className='is-empty'; e.textContent='Geen adres gevonden. Typ postcode en huisnummer.'; list.appendChild(e); }
+    items.forEach(function(d, i){
+      var li = document.createElement('li'); li.id = 'vh-opt' + i; li.setAttribute('role','option');
+      li.setAttribute('aria-selected', String(i === active));
+      var street = d.weergavenaam.split(',')[0], rest = d.weergavenaam.slice(street.length + 1).trim();
+      li.innerHTML = '<span></span><small></small>'; li.firstChild.textContent = street; li.lastChild.textContent = rest;
+      li.addEventListener('mousedown', function(ev){ ev.preventDefault(); pick(i); });
+      list.appendChild(li);
+    });
+    list.hidden = false; adres.setAttribute('aria-expanded','true');
+    if(active >= 0) adres.setAttribute('aria-activedescendant', 'vh-opt' + active);
+  }
+  function pick(i){
+    var d = items[i]; if(!d) return;
+    chosen = d; adres.value = d.weergavenaam;
+    pc.value = d.postcode; hn.value = String(d.huisnummer);
+    if(tv) tv.value = (d.huisletter || '') + (d.huisnummertoevoeging || '');
+    bar.classList.remove('is-bad'); err.hidden = true; close();
+  }
+  function search(q){
+    var my = ++seq;
+    var url = 'https://api.pdok.nl/bzk/locatieserver/search/v3_1/suggest?fq=type:adres&rows=6' +
+      '&fl=weergavenaam,postcode,huisnummer,huisletter,huisnummertoevoeging&q=' + encodeURIComponent(q);
+    fetch(url).then(function(r){ return r.json(); }).then(function(j){
+      if(my !== seq) return;
+      items = ((j.response && j.response.docs) || []).filter(function(d){ return d.postcode && d.huisnummer; }); active = items.length ? 0 : -1; render();
+    }).catch(function(){ close(); });
+  }
+  adres.addEventListener('input', function(){
+    chosen = null; pc.value = ''; hn.value = '';
+    var q = adres.value.trim(); clearTimeout(timer);
+    if(q.length < 3){ close(); return; }
+    timer = setTimeout(function(){ search(q); }, 160);
+  });
+  adres.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){
+      e.preventDefault();
+      if(!list.hidden && active >= 0 && items[active] && !chosen){ pick(active); return; }
+      btn.click(); return;
+    }
+    if(list.hidden) return;
+    if(e.key === 'ArrowDown'){ e.preventDefault(); active = Math.min(items.length - 1, active + 1); render(); }
+    else if(e.key === 'ArrowUp'){ e.preventDefault(); active = Math.max(0, active - 1); render(); }
+    else if(e.key === 'Escape'){ close(); }
+  });
+  adres.addEventListener('blur', function(){ setTimeout(close, 120); });
+  var mq = window.matchMedia('(max-width:640px)');
+  function ph(){ adres.placeholder = mq.matches ? 'Postcode + huisnummer' : 'Postcode en huisnummer van uw nieuwe adres'; }
+  ph(); if(mq.addEventListener) mq.addEventListener('change', ph); else if(mq.addListener) mq.addListener(ph);
+
+  /* no <form> on this page: a capture-phase click on the button runs before the page's own handler */
+  document.addEventListener('click', function(e){
+    if(!e.target.closest || !e.target.closest('#vh-submitBtn')) return;
+    if(!pc.value){
+      var m = adres.value.toUpperCase().match(/([1-9][0-9]{3})\s?([A-Z]{2})\D*(\d+)/);
+      if(m){ pc.value = m[1] + m[2]; hn.value = m[3]; }
+      else if(!list.hidden && items[active]){ pick(active); }
+    }
+    if(!pc.value || !hn.value){
+      e.preventDefault(); e.stopImmediatePropagation();
+      bar.classList.add('is-bad'); err.hidden = false; adres.focus();
+    }
+  }, true);
+})();
 </script>
 </body>
 </html>
